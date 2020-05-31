@@ -1,14 +1,20 @@
-#ifndef SAMOCHOD_D
-#define SAMOCHOD_D
+#ifndef SAMOCHOD_H
+#define SAMOCHOD_H
 #include <vector>
-#include "pasazer.h"
 #include "pojazd.h"
+#include "pasazer.h"
 
 class samochod : public pojazd
 {
 	public:
 		samochod();
-	//	samochod(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon, std::string _marka, int _rok_produkcji, double _pojemnosc_baku, double _stan_baku, double _przebieg, double _srednie_spalanie, int _liczba_miejsc, int _liczba_wolnych_miejsc);
+	    samochod(int _liczba_kol, double _cisnienie_w_oponach, 
+				 double _max_cisnienie_opon, std::string _marka,
+				 int _rok_produkcji, double _pojemnosc_baku, 
+				 double _stan_baku, double _przebieg, 
+				 double _srednie_spalanie, int _liczba_miejsc, 
+				 int _liczba_wolnych_miejsc);
+		samochod(const samochod &ref);
 		~samochod();
 		int sprawdz_wolne_miejsca();
 		double sprawdz_stan_paliwa();

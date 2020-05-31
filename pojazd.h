@@ -5,7 +5,8 @@ class pojazd
 {
 	public:
 		pojazd();
-		pojazd(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon);
+		pojazd(int _liczba_kol, double _cisnienie_w_oponach, 
+			   double _max_cisnienie_opon);
 		~pojazd();
 		virtual void jedz() = 0;
 		virtual void zatrzymaj_sie() = 0;
@@ -24,6 +25,7 @@ class pojazd
 			cofa
 		};
 		stan aktualny_stan = stoi;
+		friend std::ostream & operator<< (std::ostream &wyjscie, const pojazd &p);
 };
 
 #endif

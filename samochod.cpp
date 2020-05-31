@@ -1,12 +1,36 @@
 #include <iostream>
 #include "samochod.h"
 
-samochod::samochod(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon, std::string _marka, int _rok_produkcji, double _pojemnosc_baku, double _stan_baku, double _przebieg, double _srednie_spalanie, int _liczba_miejsc, int _liczba_wolnych_miejsc) : pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon), marka(_marka), rok_produkcji(_rok_produkcji), pojemnosc_baku(_pojemnosc_baku), stan_baku(_stan_baku), przebieg(_przebieg), srednie_spalanie(_srednie_spalanie), liczba_miejsc(_liczba_miejsc), liczba_wolnych_miejsc(_liczba_wolnych_miejsc)
+samochod::samochod(int _liczba_kol, double _cisnienie_w_oponach, 
+                   double _max_cisnienie_opon, std::string _marka,
+                   int _rok_produkcji, double _pojemnosc_baku, 
+                   double _stan_baku, double _przebieg, double _srednie_spalanie, 
+                   int _liczba_miejsc, int _liczba_wolnych_miejsc) : 
+                   
+                   pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon),
+                   marka(_marka), rok_produkcji(_rok_produkcji),
+                   pojemnosc_baku(_pojemnosc_baku), stan_baku(_stan_baku),
+                   przebieg(_przebieg), srednie_spalanie(_srednie_spalanie), 
+                   liczba_miejsc(_liczba_miejsc), 
+                   liczba_wolnych_miejsc(_liczba_wolnych_miejsc)
 {
 }
 
 samochod::samochod()
 {
+}
+
+samochod::samochod(const samochod &ref)
+{
+    pojemnosc_baku = ref.pojemnosc_baku;
+    stan_baku = ref.stan_baku;
+    przebieg = ref.przebieg;
+    srednie_spalanie = ref.srednie_spalanie;
+    rok_produkcji = ref.rok_produkcji;
+    liczba_miejsc = ref.liczba_miejsc;
+    liczba_wolnych_miejsc = ref.liczba_wolnych_miejsc;
+    marka = ref.marka;
+    pasazerowie = ref.pasazerowie;
 }
 
 samochod::~samochod()
