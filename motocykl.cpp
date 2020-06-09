@@ -1,14 +1,15 @@
 #include <iostream>
 #include "motocykl.h"
 
-motocykl::motocykl(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon,
-                   std::string _marka, double _pojemnosc_baku, double _stan_baku, 
-                   double _przebieg, double _srednie_spalanie, int _rok_produkcji) : 
+motocykl::motocykl(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon, 
+                   int _rok_produkcji, double _pojemnosc_baku, 
+                   double _stan_baku, double _przebieg, double _srednie_spalanie, 
+                   std::string _marka) : 
                    
-                   pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon), 
-                   pojemnosc_baku(_pojemnosc_baku), stan_baku(_stan_baku), 
-                   przebieg(_przebieg), srednie_spalanie(_srednie_spalanie), 
-                   rok_produkcji(_rok_produkcji), marka(_marka) 
+                   pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon),
+                   rok_produkcji(_rok_produkcji), pojemnosc_baku(_pojemnosc_baku),
+                   stan_baku(_stan_baku), przebieg(_przebieg), srednie_spalanie(_srednie_spalanie),
+                   marka(_marka), czy_wolne(true)               
 {
 }
 
@@ -31,9 +32,29 @@ motocykl::motocykl(const motocykl &ref)
     pasazer_motora = ref.pasazer_motora;
 }
 
+bool motocykl::get_czy_wolne()
+{
+    return czy_wolne;
+}
+
 double motocykl::sprawdz_stan_paliwa()
 {
     return stan_baku;
+}
+
+double motocykl::get_przebieg()
+{
+    return przebieg;
+}
+
+void motocykl::set_czy_wolne(bool test)
+{
+    czy_wolne = test;
+}
+
+void motocykl::dodaj_pasazera(const pasazer &p)
+{
+    pasazer_motora = p;
 }
 
 void motocykl::zatankuj(double ilosc_litrow)
@@ -75,7 +96,7 @@ void motocykl::zatrzymaj_sie()
 
 void motocykl::wypisz_pasazerow()
 {
-    std::cout << pasazer_motora.get_imie() << std::endl;
+    std::cout << pasazer_motora.get_imie() << " " << pasazer_motora.get_nazwisko() << std::endl;
 }
 
 std::ostream &operator<< (std::ostream &wyjscie, const motocykl &m)

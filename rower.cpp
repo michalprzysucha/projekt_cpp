@@ -1,12 +1,13 @@
 #include <iostream>
 #include "rower.h"
 
-rower::rower(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon, 
-             std::string _marka, std::string _rodzaj, int _rok_produkcji, double _wielkosc_ramy) : 
+rower::rower(int _liczba_kol, double _cisnienie_w_oponach, 
+              double _max_cisnienie_opon, int _rok_produkcji, double _wielkosc_ramy,
+              std::string _marka, std::string _rodzaj) : 
              
              pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon), 
-             marka(_marka), rodzaj(_rodzaj), rok_produkcji(_rok_produkcji),
-             wielkosc_ramy(_wielkosc_ramy)
+             rok_produkcji(_rok_produkcji), wielkosc_ramy(_wielkosc_ramy),
+             czy_wolne(true), marka(_marka), rodzaj(_rodzaj)
 {
 }
 
@@ -37,9 +38,14 @@ void rower::zatrzymaj_sie()
     aktualny_stan = stoi;
 }
 
+void rower::dodaj_pasazera(const pasazer &p)
+{
+    rowerzysta = p;
+}
+
 void rower::wypisz_pasazerow()
 {
-    std::cout << rowerzysta.get_imie() << std::endl;
+    std::cout << rowerzysta.get_imie() << " " << rowerzysta.get_nazwisko() << std::endl;
 }
 
 std::ostream &operator<< (std::ostream &wyjscie, const rower &r)
@@ -51,6 +57,17 @@ void rower::ustaw_id(unsigned int id_rower)
 {
     id = id_rower;
 }
+
+void rower::set_czy_wolne(bool test)
+{
+    czy_wolne = test;
+}
+
+bool rower::get_czy_wolne()
+{
+    return czy_wolne;
+}
+
 unsigned int rower::get_id()
 {
     return id;

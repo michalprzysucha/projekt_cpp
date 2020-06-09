@@ -1,10 +1,10 @@
 #include <iostream>
 #include "pasazer.h"
 
-pasazer::pasazer(std::string _imie, std::string _nazwisko,
-                 double _wzrost, int _wiek, std::string _preferowany_transport) : 
+pasazer::pasazer(int _wiek, double _wzrost, std::string _imie, std::string _nazwisko,
+                std::string _preferowany_transport) : 
                  
-                 imie(_imie), nazwisko(_nazwisko), wzrost(_wzrost), wiek(_wiek), 
+                 wiek(_wiek), wzrost(_wzrost), imie(_imie), nazwisko(_nazwisko),
                  preferowany_transport(_preferowany_transport)
 {
 }
@@ -69,4 +69,14 @@ void pasazer::ustaw_id(unsigned int id)
 unsigned int pasazer::get_id()
 {
     return pasazer_id;
+}
+
+void pasazer::operator=(const pasazer &p)
+{
+    pasazer_id = p.pasazer_id;
+    wiek = p.wiek;
+    wzrost = p.wzrost;
+    imie = p.imie;
+    nazwisko = p.nazwisko;
+    preferowany_transport = p.preferowany_transport;
 }

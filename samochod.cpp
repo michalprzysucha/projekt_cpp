@@ -2,17 +2,16 @@
 #include "samochod.h"
 
 samochod::samochod(int _liczba_kol, double _cisnienie_w_oponach, 
-                   double _max_cisnienie_opon, std::string _marka,
-                   int _rok_produkcji, double _pojemnosc_baku, 
-                   double _stan_baku, double _przebieg, double _srednie_spalanie, 
-                   int _liczba_miejsc, int _liczba_wolnych_miejsc) : 
+                   double _max_cisnienie_opon, int _rok_produkcji, 
+                   int _liczba_miejsc, int _liczba_wolnych_miejsc,
+				   double _pojemnosc_baku, double _stan_baku, double _przebieg,
+				   double _srednie_spalanie, std::string _marka) : 
                    
                    pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon),
-                   marka(_marka), rok_produkcji(_rok_produkcji),
-                   pojemnosc_baku(_pojemnosc_baku), stan_baku(_stan_baku),
-                   przebieg(_przebieg), srednie_spalanie(_srednie_spalanie), 
-                   liczba_miejsc(_liczba_miejsc), 
-                   liczba_wolnych_miejsc(_liczba_wolnych_miejsc)
+                   rok_produkcji(_rok_produkcji), liczba_miejsc(_liczba_miejsc),
+                   liczba_wolnych_miejsc(_liczba_wolnych_miejsc), pojemnosc_baku(_pojemnosc_baku),
+                   stan_baku(_stan_baku), przebieg(_przebieg), srednie_spalanie(_srednie_spalanie),
+                   marka(_marka)
 {
 }
 
@@ -45,6 +44,11 @@ int samochod::sprawdz_wolne_miejsca()
 double samochod::sprawdz_stan_paliwa()
 {
     return stan_baku;
+}
+
+double samochod::get_przebieg()
+{
+    return przebieg;
 }
 
 void samochod::zatankuj(double ilosc_litrow)
@@ -118,7 +122,7 @@ void samochod::wypisz_pasazerow()
     std::vector <pasazer>::iterator it;
     for(it = pasazerowie.begin(); it != pasazerowie.end(); it++)
     {
-        std::cout << it -> get_id() << " " << it -> get_imie() << std::endl;
+        std::cout << it -> get_imie() << " " << it -> get_nazwisko() << std::endl;
     }
 }
 

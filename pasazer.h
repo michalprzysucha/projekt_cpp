@@ -5,9 +5,8 @@ class pasazer
 {
     public:
                 pasazer();
-                pasazer(std::string _imie, std::string _nazwisko, 
-                        double _wzrost, int _wiek, 
-                        std::string _preferowany_transport);
+                pasazer(int _wiek, double _wzrost, std::string _imie, std::string _nazwisko,
+                std::string _preferowany_transport);
                 pasazer(const pasazer &ref);
                 ~pasazer();
                 int sprawdz_wiek_pasazera();
@@ -18,9 +17,9 @@ class pasazer
                 std::string get_nazwisko();
                 std::string get_preferowany_transport();
                 void ustaw_id(unsigned int id);
-                
+                void operator=(const pasazer&);                
     private:
-                int pasazer_id; 
+                unsigned int pasazer_id; 
                 int wiek;
                 double wzrost;
                 std::string imie;

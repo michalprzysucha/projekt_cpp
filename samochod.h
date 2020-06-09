@@ -9,16 +9,15 @@ class samochod : public pojazd
 	public:
 		samochod();
 	    samochod(int _liczba_kol, double _cisnienie_w_oponach, 
-				 double _max_cisnienie_opon, std::string _marka,
-				 int _rok_produkcji, double _pojemnosc_baku, 
-				 double _stan_baku, double _przebieg, 
-				 double _srednie_spalanie, int _liczba_miejsc, 
-				 int _liczba_wolnych_miejsc);
+				 double _max_cisnienie_opon, int _rok_produkcji, int _liczba_miejsc, int _liczba_wolnych_miejsc,
+				 double _pojemnosc_baku, double _stan_baku, double _przebieg,
+				 double _srednie_spalanie, std::string _marka);
 		samochod(const samochod &ref);
 		~samochod();
 		int sprawdz_wolne_miejsca();
 		unsigned int get_id();
 		double sprawdz_stan_paliwa();
+		double get_przebieg();
 		void zatankuj(double ilosc_litrow);
 		void jedz();
 		void zatrzymaj_sie();
