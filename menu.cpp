@@ -39,7 +39,7 @@ void Menu::print_menu_pasazer()
     std::cout << "1. Dodaj pasazera"                          << std::endl;
     std::cout << "2. Sczytaj dane pasazerow z pliku"          << std::endl;
     std::cout << "3. Wypisz wszystkich pasazerow z bazy"      << std::endl;
-    std::cout << "4. Posortuj pasazerow"                      << std::endl;
+    std::cout << "4. Posortuj pasazerow wg wieku"             << std::endl;
     std::cout << "5. Wroc"                                    << std::endl;
     std::cout                                                 << std::endl;
     std::cout <<"===========================================" << std::endl;
