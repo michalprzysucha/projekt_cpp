@@ -2,6 +2,10 @@
 #define MENU_H
 #include <vector>
 #include "pasazer.h"
+#include "pojazd.h"
+#include "samochod.h"
+#include "motocykl.h"
+#include "rower.h"
 
 class Menu
 {
@@ -18,7 +22,23 @@ class Menu
                 void wyjdz();
                 void pobierz_wybor(int menu);     
                 void sczytaj_pasazerow();
+                void sczytaj_samochody();
+                void sczytaj_motory();
+                void sczytaj_rowery();
+                void powrot_z_funkcji();
+                void sczytaj_wszystkie_pojazdy();
+                void dodaj_pasazera_s();
+                void wypisz_pasazerow_s();
+                void jedz_s();
+                unsigned int wybierz_sam();
+                unsigned int wybierz_motoc();
+                unsigned int wybierz_rower();
+                unsigned int wybierz_pasazera();
+                std::vector <pojazd*> pojazdy;
                 std::vector <pasazer*> pasazerowie;
+                std::vector <samochod*> samochody;
+                std::vector <motocykl*> motocykle;
+                std::vector <rower*> rowery;
     private:
                 int wybor;
                 enum stan_menu

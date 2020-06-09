@@ -56,7 +56,17 @@ std::string pasazer::get_preferowany_transport()
     return preferowany_transport;
 }
 
-std::ostream & operator<< (std::ostream &wyjscie, const pasazer &p)
+std::ostream &operator<< (std::ostream &wyjscie, const pasazer &p)
 {
-    return wyjscie << "Imie: " << p.imie << " nazwisko: " << p.nazwisko << std::endl << "wiek: " << p.wiek << std::endl << "wzrost: " << p.wzrost << std::endl << "preferowany transport: " << p.preferowany_transport << std::endl;
+    return wyjscie << std::endl << "ID: " << p.pasazer_id << std::endl << "Imie: " << p.imie << std::endl << "Nazwisko: " << p.nazwisko << std::endl << "Wiek: " << p.wiek << std::endl << "Wzrost: " << p.wzrost << std::endl << "Preferowany transport: " << p.preferowany_transport << std::endl;
+}
+
+void pasazer::ustaw_id(unsigned int id)
+{
+    pasazer_id = id;
+}
+
+unsigned int pasazer::get_id()
+{
+    return pasazer_id;
 }

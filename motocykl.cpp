@@ -73,7 +73,22 @@ void motocykl::zatrzymaj_sie()
     aktualny_stan = stoi;
 }
 
-void motocykl::wypisz_pasazera()
+void motocykl::wypisz_pasazerow()
 {
     std::cout << pasazer_motora.get_imie() << std::endl;
+}
+
+std::ostream &operator<< (std::ostream &wyjscie, const motocykl &m)
+{          
+    return wyjscie << std::endl << "ID: " << m.id << std::endl << "Marka: " << m.marka << std::endl << "Pojemnosc baku: " << m.pojemnosc_baku << std::endl << "Stan baku: " << m.stan_baku << std::endl << "Przebieg: " << m.przebieg << std::endl << "Srednie spalanie: " << m.srednie_spalanie << std::endl << "Rok produkcji: " << m.rok_produkcji << std::endl << "Liczba kol: " << m.liczba_kol << std::endl << "Cisnienie w oponach: " << m.cisnienie_w_oponach << std::endl << "Maksymalne cisnienie opon: " << m.max_cisnienie_opon << std::endl;
+}
+
+void motocykl::ustaw_id(unsigned int id_motocykl)
+{
+    id = id_motocykl;
+}
+
+unsigned int motocykl::get_id()
+{
+    return id;
 }

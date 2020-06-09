@@ -1,0 +1,10 @@
+Kross gorski 2015 20 2 3 4
+Trek miejski 2018 22 2 4 4
+Giant miejski 2013 19 2 2 4.5
+Romet kolarski 2016 18 2 3 3.8
+Unibike trekkingowy 2020 22 2 4 4.5
+Kross miejski 2019 21 2 4.5 4.5
+Trek gorski 2015 17 2 1 3.9
+Romet kolarski 2012 19 2 2 4.3
+Kross kolarski 2020 21 2 4 4.5
+Kross trekkingowy 2017 19 2 4 4

@@ -11,13 +11,16 @@ class pasazer
                 pasazer(const pasazer &ref);
                 ~pasazer();
                 int sprawdz_wiek_pasazera();
+                unsigned int get_id();
                 double sprawdz_wzrost_pasazera();
                 std::string sprawdz_preferowany_transport();
                 std::string get_imie();
                 std::string get_nazwisko();
                 std::string get_preferowany_transport();
+                void ustaw_id(unsigned int id);
                 
-    protected:
+    private:
+                int pasazer_id; 
                 int wiek;
                 double wzrost;
                 std::string imie;

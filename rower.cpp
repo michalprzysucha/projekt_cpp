@@ -2,10 +2,11 @@
 #include "rower.h"
 
 rower::rower(int _liczba_kol, double _cisnienie_w_oponach, double _max_cisnienie_opon, 
-             std::string _marka, std::string _rodzaj, int _rok_produkcji) : 
+             std::string _marka, std::string _rodzaj, int _rok_produkcji, double _wielkosc_ramy) : 
              
              pojazd(_liczba_kol, _cisnienie_w_oponach, _max_cisnienie_opon), 
-             marka(_marka), rodzaj(_rodzaj), rok_produkcji(_rok_produkcji)
+             marka(_marka), rodzaj(_rodzaj), rok_produkcji(_rok_produkcji),
+             wielkosc_ramy(_wielkosc_ramy)
 {
 }
 
@@ -26,20 +27,6 @@ rower::~rower()
 {
 }
 
-double rower::dobierz_rame()
-{
-    for(int i = 0; i < 8; i++)
-    {
-        if(rowerzysta.sprawdz_wzrost_pasazera() >= 191 - 5 * i)
-        {
-            return 21 - i;
-        }
-    }
-
-    rodzaj = "dzieciecy";
-    return 12;
-}
-
 void rower::jedz()
 {
     aktualny_stan = jedzie;
@@ -50,8 +37,21 @@ void rower::zatrzymaj_sie()
     aktualny_stan = stoi;
 }
 
-void rower::wypisz_rowerzyste()
+void rower::wypisz_pasazerow()
 {
     std::cout << rowerzysta.get_imie() << std::endl;
-}#include <iostream>
+}
 
+std::ostream &operator<< (std::ostream &wyjscie, const rower &r)
+{          
+    return wyjscie << std::endl << "ID: " << r.id << std::endl << "Marka: " << r.marka << std::endl << "Rodzaj: " << r.rodzaj << std::endl << "Rok produkcji: " << r.rok_produkcji << std::endl << "Wielkosc ramy: " << r.wielkosc_ramy << std::endl << "Liczba kol: " << r.liczba_kol << std::endl << "Cisnienie w oponach: " << r.cisnienie_w_oponach << std::endl << "Maksymalne cisnienie w oponach: " << r.max_cisnienie_opon << std::endl;
+}
+
+void rower::ustaw_id(unsigned int id_rower)
+{
+    id = id_rower;
+}
+unsigned int rower::get_id()
+{
+    return id;
+}

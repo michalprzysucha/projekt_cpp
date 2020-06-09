@@ -18,16 +18,19 @@ class motocykl : public pojazd
 		void zatankuj(double ilosc_litrow);
         void jedz();
 		void zatrzymaj_sie();
-		void wypisz_pasazera();
+		void wypisz_pasazerow();
+		void ustaw_id(unsigned int id);
+		unsigned int get_id();
         
      private:
+		int rok_produkcji;
 		double pojemnosc_baku;
 		double stan_baku;
 		double przebieg;
 		double srednie_spalanie;
-		int rok_produkcji;
 		std::string marka;
         pasazer pasazer_motora;
+		friend std::ostream &operator<< (std::ostream &wyjscie, const motocykl &m);
 };
 
 #endif

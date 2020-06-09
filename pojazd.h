@@ -11,10 +11,13 @@ class pojazd
 		virtual void jedz() = 0;
 		virtual void zatrzymaj_sie() = 0;
 		virtual void wypisz_pasazerow() = 0;
+		virtual void ustaw_id(unsigned int id) = 0;
 		void napompuj_kola(double ile_barow);
+		virtual unsigned int get_id() = 0;
 		int sprawdz_cisnienie_kol();
 
 	protected:
+		unsigned int id;
 		int liczba_kol;
 		double cisnienie_w_oponach;							// w barach
 		double max_cisnienie_opon;
@@ -25,7 +28,6 @@ class pojazd
 			cofa
 		};
 		stan aktualny_stan = stoi;
-		friend std::ostream & operator<< (std::ostream &wyjscie, const pojazd &p);
 };
 
 #endif

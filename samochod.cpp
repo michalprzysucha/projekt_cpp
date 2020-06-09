@@ -105,6 +105,7 @@ void samochod::cofaj_sie()
 void samochod::dodaj_pasazera(const pasazer &pasazer_samochodu)
 {
     pasazerowie.push_back(pasazer_samochodu);
+    liczba_wolnych_miejsc--;
 }
 
 pasazer samochod::wez_pierwszego_pasazera(const pasazer &pasazer_samochodu)
@@ -117,6 +118,21 @@ void samochod::wypisz_pasazerow()
     std::vector <pasazer>::iterator it;
     for(it = pasazerowie.begin(); it != pasazerowie.end(); it++)
     {
-        std::cout << it -> get_imie() << std::endl;
+        std::cout << it -> get_id() << " " << it -> get_imie() << std::endl;
     }
+}
+
+std::ostream &operator<< (std::ostream &wyjscie, const samochod &s)
+{          
+    return wyjscie << std::endl << "ID: " << s.id << std::endl << "Marka: " << s.marka << std::endl << "Pojemnosc baku: " << s.pojemnosc_baku << std::endl << "Stan baku: " << s.stan_baku << std::endl << "Przebieg: " << s.przebieg << std::endl << "Srednie spalanie: " << s.srednie_spalanie << std::endl << "Rok produkcji: " << s.rok_produkcji << std::endl << "Liczba miejsc: " << s.liczba_miejsc << std::endl << "Liczba wolnych miejsc: " << s.liczba_wolnych_miejsc << std::endl << "Liczba kol: " << s.liczba_kol << std::endl << "Cisnienie w oponach: " << s.cisnienie_w_oponach << std::endl << "Maksymalne cisnienie opon: " << s.max_cisnienie_opon << std::endl;
+}
+
+void samochod::ustaw_id(unsigned int id_samochod)
+{
+    id = id_samochod;
+}
+
+unsigned int samochod::get_id()
+{
+    return id;
 }

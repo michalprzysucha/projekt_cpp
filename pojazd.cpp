@@ -32,8 +32,3 @@ void pojazd::napompuj_kola(double ile_barow)
         std::cout << "Za duze cisnienie! Pekna opony!" << std::endl;
     }
 }
-
-std::ostream & operator<< (std::ostream &wyjscie, const pojazd &p)
-{
-    return wyjscie << "Liczba kol: " << p.liczba_kol << std::endl << "cisnienie w oponach: " << p.cisnienie_w_oponach << std::endl << "maksymalne cisnienie w oponach: " << p.max_cisnienie_opon << std::endl << "aktualy stan: " << p.aktualny_stan << std::endl;
-}
